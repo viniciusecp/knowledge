@@ -9,10 +9,10 @@
     </div>
     <div class="user-dropdown-content">
       <a href>
-        <i class="fa fa-cogs">Administração</i>
+        <i class="fa fa-cogs">{{ " " }}Administração</i>
       </a>
       <a href>
-        <i class="fa fa-sign-out">Sair</i>
+        <i class="fa fa-sign-out">{{ " " }}Sair</i>
       </a>
     </div>
   </div>
