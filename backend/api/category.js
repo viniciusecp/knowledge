@@ -1,8 +1,45 @@
 module.exports = app => {
   const { existsOrError, notExistsOrError } = app.api.validation;
 
+  // const save = (req, res) => {
+  //   const category = { ...req.body };
+  //   // const category = {
+  //   //   id: req.body.id,
+  //   //   name: req.body.name,
+  //   //   parentId: req.body.parentId
+  //   // };
+
+  //   if (req.params.id) category.id = req.params.id;
+
+  //   try {
+  //     existsOrError(category.name, "Nome não informado");
+  //   } catch (msg) {
+  //     return res.status(400).send(msg);
+  //   }
+
+  //   if (category.id) {
+  //     app
+  //       .db("categories")
+  //       .update(category)
+  //       .where({ id: category.id })
+  //       .then(() => res.status(204).send())
+  //       .catch(err => res.status(500).send(err));
+  //   } else {
+  //     app
+  //       .db("categories")
+  //       .insert(category)
+  //       .then(() => res.status(204).send())
+  //       .catch(err => res.status(500).send(err));
+  //   }
+  // };
+
   const save = (req, res) => {
-    const category = { ...req.body };
+    const category = {
+      id: req.body.id,
+      name: req.body.name,
+      parentId: req.body.parentId
+    };
+
     if (req.params.id) category.id = req.params.id;
 
     try {
@@ -16,13 +53,13 @@ module.exports = app => {
         .db("categories")
         .update(category)
         .where({ id: category.id })
-        .then(() => res.status(204).send())
+        .then(_ => res.status(204).send())
         .catch(err => res.status(500).send(err));
     } else {
       app
         .db("categories")
         .insert(category)
-        .then(() => res.status(204).send())
+        .then(_ => res.status(204).send())
         .catch(err => res.status(500).send(err));
     }
   };
