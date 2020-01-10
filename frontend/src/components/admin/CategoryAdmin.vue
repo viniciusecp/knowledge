@@ -10,7 +10,7 @@
           v-model="category.name"
           required
           :readonly="mode === 'remove'"
-          placeholder="Informe o Node da Categoria..."
+          placeholder="Informe o Nome da Categoria..."
         />
       </b-form-group>
 
@@ -21,31 +21,17 @@
           :options="categories"
           v-model="category.parentId"
         />
-        <b-form-input
-          v-else
-          id="category-parentId"
-          type="text"
-          v-model="category.path"
-          readonly
-        />
+        <b-form-input v-else id="category-parentId" type="text" v-model="category.path" readonly />
       </b-form-group>
 
-      <b-button variant="primary" v-if="mode === 'save'" @click="save">
-        Salvar
-      </b-button>
-      <b-button variant="danger" v-if="mode === 'remove'" @click="remove">
-        Excluir
-      </b-button>
+      <b-button variant="primary" v-if="mode === 'save'" @click="save">Salvar</b-button>
+      <b-button variant="danger" v-if="mode === 'remove'" @click="remove">Excluir</b-button>
       <b-button class="ml-2" @click="reset">Cancelar</b-button>
     </b-form>
     <hr />
     <b-table hover striped :items="categories" :fields="fields">
       <template slot="actions" slot-scope="data">
-        <b-button
-          variant="warning"
-          @click="loadCategory(data.item)"
-          class="mr-2"
-        >
+        <b-button variant="warning" @click="loadCategory(data.item)" class="mr-2">
           <i class="fa fa-pencil"></i>
         </b-button>
         <b-button variant="danger" @click="loadCategory(data.item, 'remove')">

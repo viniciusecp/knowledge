@@ -11,7 +11,7 @@
               v-model="user.name"
               required
               :readonly="mode === 'remove'"
-              placeholder="Informe o Node do Usuário..."
+              placeholder="Informe o Nome do Usuário..."
             ></b-form-input>
           </b-form-group>
         </b-col>
