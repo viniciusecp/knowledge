@@ -25,6 +25,6 @@ export default {
 .page-title h2 {
   color: #777;
   margin-top: 1.3rem;
-  font-size: 1.8rem;
+  font-size: 1.4em;
 }
 </style>
